@@ -1,3 +1,12 @@
+<template lang='pug'>
+  #app
+    top
+    .fill
+      router-view.view
+    bottom
+    modal
+</template>
+
 <script>
 
 import top from './components/layout/header.vue'
@@ -14,16 +23,12 @@ export default {
 }
 </script>
 
-<template lang='pug'>
-  #app
-    top
-    .fill
-      router-view.view
-    bottom
-    modal
-</template>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
 
-<style>
+body {
+  font-family: 'Monda', sans-serif;
+}
 
 #app {
   display: flex;

@@ -19,10 +19,10 @@
     "@vue/cli-service": "^3.0.0-beta.15",
     "babel-plugin-transform-commonjs-es2015-modules": "^4.0.1",
     "copy-webpack-plugin": "^4.5.2",
-    "node-sass": "^6.0.1",
+    "node-sass": "^4.0.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^12.1.0",
+    "sass-loader": "^10.1.1",
     "vue-template-compiler": "^2.5.16"
   },
   "postcss": {
