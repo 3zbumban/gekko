@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
 footer {
   flex-grow: 1;
 }
