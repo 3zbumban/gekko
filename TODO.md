@@ -1,12 +1,12 @@
 # TODO
 
-- [ ] rm or leave `node-sass`
+- [x] ~~rm or~~ leave `node-sass`
 - [ ] cbp integration
 - [ ] update install docs
-- [ ] git rm cached vue/dist + gitignore
+- [x] ~~git rm cached vue/dist + gitignore~~ -> some files used in build
 - [ ] how 2 gen docs
-- [ ] pnpm
-- [ ] test package.json
+- [x] pnpm -> not working with vue
+- [x] test package.json
 - [ ] update deps `npx npm-upgrade`
 - [ ] https://shields.io/
 - [ ] tg + ui

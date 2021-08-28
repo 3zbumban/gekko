@@ -182,11 +182,11 @@ Actor.prototype.emitHelp = function() {
   let message = _.reduce(
     this.rawCommands,
     function(message, command) {
-      return message + ' ' + command + ',';
+      return message + ' ' + command + '\n';
     },
-    'Possible commands are:'
+    'Possible commands are:\n'
   );
-  message = message.substr(0, _.size(message) - 1) + '.';
+  message = message.substr(0, _.size(message) - 1);
   this.bot.sendMessage(this.chatId, message);
 };
 
