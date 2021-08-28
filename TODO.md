@@ -10,6 +10,7 @@
 - [ ] update deps `npx npm-upgrade`
 - [ ] https://shields.io/
 - [ ] tg + ui
+- [ ] new img (crop: https://elad.medium.com/how-to-crop-images-with-css-b8471d402b16)
 
 ## features
 

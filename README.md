@@ -19,3 +19,7 @@ Gekko has [a forum](https://forum.gekko.wizb.it/) that is the place for discussi
 ---
 
 This is a fork of askmike/gekko
+
+## Developer References
+
+- [furtive.css](https://github.com/johno/furtive)
