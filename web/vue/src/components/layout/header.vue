@@ -1,9 +1,4 @@
 <template lang='pug'>
-  div
-    #top
-    header.bg--off-white.grd
-      .contain.grd-row
-        h3.py1.px2.col-2 Gekko UI
     nav.bg--light-gray
       .menu.contain
         router-link(to='/home').py1 Home
@@ -24,7 +19,7 @@ export default {}
   display: flex;
   flex-direction: row;
   margin-top: 0;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .menu a {
@@ -40,7 +35,8 @@ export default {}
 }
 
 .menu a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  background-color: rgba(14, 105, 165, 0.99);
 }
 
 </style>
