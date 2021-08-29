@@ -32,6 +32,10 @@ body {
   color: white;
 }
 
+textarea {
+  color: black;
+}
+
 #app {
   display: flex;
   min-height: 100vh;
