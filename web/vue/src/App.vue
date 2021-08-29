@@ -32,6 +32,11 @@ body {
   color: white;
 }
 
+.hr {
+  margin: 0;
+  height: 5px;
+}
+
 textarea {
   color: black;
 }
