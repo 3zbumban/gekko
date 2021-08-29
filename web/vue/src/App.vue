@@ -28,6 +28,8 @@ export default {
 
 body {
   font-family: 'Monda', sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #app {

@@ -1,5 +1,4 @@
 /*
-
   A pipeline implements a full Gekko Flow based on a config and 
   a mode. The mode is an abstraction that tells Gekko what market
   to load (realtime, backtesting or importing) while making sure
@@ -9,45 +8,42 @@
   https://gekko.wizb.it/docs/internals/architecture.html
 
 */
+// TODO:
+const util = require('./util');
+const dirs = util.dirs();
+const _ = require('lodash');
+const async = require('async');
+const log = require(dirs.core + 'log');
 
+const pipeline = (settings) => {
 
-var util = require('./util');
-var dirs = util.dirs();
-
-var _ = require('lodash');
-var async = require('async');
-
-var log = require(dirs.core + 'log');
-
-var pipeline = (settings) => {
-
-  var mode = settings.mode;
-  var config = settings.config;
+  const mode = settings.mode;
+  const config = settings.config;
 
   // prepare a GekkoStream
-  var GekkoStream = require(dirs.core + 'gekkoStream');
+  const GekkoStream = require(dirs.core + 'gekkoStream');
 
   // all plugins
-  var plugins = [];
+  const plugins = [];
   // all emitting plugins
-  var emitters = {};
+  const emitters = {};
   // all plugins interested in candles
-  var candleConsumers = [];
+  const candleConsumers = [];
 
   // utility to check and load plugins.
-  var pluginHelper = require(dirs.core + 'pluginUtil');
+  const pluginHelper = require(dirs.core + 'pluginUtil');
 
   // meta information about every plugin that tells Gekko
   // something about every available plugin
-  var pluginParameters = require(dirs.gekko + 'plugins');
+  const pluginParameters = require(dirs.gekko + 'plugins');
   // meta information about the events plugins can broadcast
   // and how they should hooked up to consumers.
-  var subscriptions = require(dirs.gekko + 'subscriptions');
+  const subscriptions = require(dirs.gekko + 'subscriptions');
 
-  var market;
+  const market;
 
   // Instantiate each enabled plugin
-  var loadPlugins = function(next) {
+  const loadPlugins = function(next) {
     // load all plugins
     async.mapSeries(
       pluginParameters,
@@ -64,7 +60,7 @@ var pipeline = (settings) => {
 
   // Some plugins emit their own events, store
   // a reference to those plugins.
-  var referenceEmitters = function(next) {
+  const referenceEmitters = function(next) {
 
     _.each(plugins, function(plugin) {
       if(plugin.meta.emits)
@@ -75,7 +71,7 @@ var pipeline = (settings) => {
   }
 
   // Subscribe all plugins to other emitting plugins
-  var subscribePlugins = function(next) {
+  const subscribePlugins = function(next) {
     // events broadcasted by plugins
     var pluginSubscriptions = _.filter(
       subscriptions,
@@ -151,7 +147,7 @@ var pipeline = (settings) => {
     });
 
     // events broadcasted by the market
-    var marketSubscriptions = _.filter(
+    const marketSubscriptions = _.filter(
       subscriptions,
       {emitter: 'market'}
     );
@@ -193,7 +189,7 @@ var pipeline = (settings) => {
     next();
   }
 
-  var subscribePluginsToMarket = function(next) {
+  const subscribePluginsToMarket = function(next) {
 
     // events broadcasted by the market
     var marketSubscriptions = _.filter(

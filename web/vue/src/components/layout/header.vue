@@ -1,5 +1,5 @@
 <template lang='pug'>
-    nav.bg--light-gray
+    nav.bg--light-black
       .menu.contain
         router-link(to='/home').py1 Home
         router-link(to='/live-gekkos').py1 Live Gekkos
@@ -31,7 +31,7 @@ export default {}
 }
 
 .menu .router-link-active {
-  background-color: rgba(250,250,250,.99);
+  background-color: rgba(133, 204, 74, 0.99);
 }
 
 .menu a:hover {

@@ -1,5 +1,5 @@
 <template lang='pug'>
-  footer.p2.bg--off-white
+  footer.p2.bg--off-black
     .contain
       p
         em Use Gekko at your own risk.

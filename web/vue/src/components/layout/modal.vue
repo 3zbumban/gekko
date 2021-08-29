@@ -56,7 +56,7 @@ export default {
   transform: translate(-50%, -50%);
   width: 600px;
   min-height: 300px;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
 }
 
 .modal-guts {
