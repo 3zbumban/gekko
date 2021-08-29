@@ -17,33 +17,33 @@ const log = require(dirs.core + 'log');
 
 const pipeline = (settings) => {
 
-  const mode = settings.mode;
-  const config = settings.config;
+  let mode = settings.mode;
+  let config = settings.config;
 
   // prepare a GekkoStream
-  const GekkoStream = require(dirs.core + 'gekkoStream');
+  let GekkoStream = require(dirs.core + 'gekkoStream');
 
   // all plugins
-  const plugins = [];
+  let plugins = [];
   // all emitting plugins
-  const emitters = {};
+  let emitters = {};
   // all plugins interested in candles
-  const candleConsumers = [];
+  let candleConsumers = [];
 
   // utility to check and load plugins.
-  const pluginHelper = require(dirs.core + 'pluginUtil');
+  let pluginHelper = require(dirs.core + 'pluginUtil');
 
   // meta information about every plugin that tells Gekko
   // something about every available plugin
-  const pluginParameters = require(dirs.gekko + 'plugins');
+  let pluginParameters = require(dirs.gekko + 'plugins');
   // meta information about the events plugins can broadcast
   // and how they should hooked up to consumers.
-  const subscriptions = require(dirs.gekko + 'subscriptions');
+  let subscriptions = require(dirs.gekko + 'subscriptions');
 
-  const market;
+  let market;
 
   // Instantiate each enabled plugin
-  const loadPlugins = function(next) {
+  let loadPlugins = function(next) {
     // load all plugins
     async.mapSeries(
       pluginParameters,
@@ -60,7 +60,7 @@ const pipeline = (settings) => {
 
   // Some plugins emit their own events, store
   // a reference to those plugins.
-  const referenceEmitters = function(next) {
+  let referenceEmitters = function(next) {
 
     _.each(plugins, function(plugin) {
       if(plugin.meta.emits)
@@ -71,9 +71,9 @@ const pipeline = (settings) => {
   }
 
   // Subscribe all plugins to other emitting plugins
-  const subscribePlugins = function(next) {
+  let subscribePlugins = function(next) {
     // events broadcasted by plugins
-    var pluginSubscriptions = _.filter(
+    let pluginSubscriptions = _.filter(
       subscriptions,
       sub => sub.emitter !== 'market'
     );
@@ -147,7 +147,7 @@ const pipeline = (settings) => {
     });
 
     // events broadcasted by the market
-    const marketSubscriptions = _.filter(
+    let marketSubscriptions = _.filter(
       subscriptions,
       {emitter: 'market'}
     );
@@ -167,14 +167,14 @@ const pipeline = (settings) => {
     next();
   }
 
-  var prepareMarket = function(next) {
+  let prepareMarket = function(next) {
     if(mode === 'backtest' && config.backtest.daterange === 'scan')
       require(dirs.core + 'prepareDateRange')(next);
     else
       next();
   }
 
-  var setupMarket = function(next) {
+  let setupMarket = function(next) {
     // load a market based on the config (or fallback to mode)
     let marketType;
     if(config.market)
@@ -189,10 +189,10 @@ const pipeline = (settings) => {
     next();
   }
 
-  const subscribePluginsToMarket = function(next) {
+  let subscribePluginsToMarket = function(next) {
 
     // events broadcasted by the market
-    var marketSubscriptions = _.filter(
+    let marketSubscriptions = _.filter(
       subscriptions,
       {emitter: 'market'}
     );
@@ -229,7 +229,7 @@ const pipeline = (settings) => {
     ],
     function() {
 
-      var gekkoStream = new GekkoStream(plugins);
+      let gekkoStream = new GekkoStream(plugins);
 
       market
         .pipe(gekkoStream)
