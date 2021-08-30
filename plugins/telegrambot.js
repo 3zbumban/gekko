@@ -51,19 +51,19 @@ Actor.prototype.processAdvice = function(advice) {
 
 if(emitTrades) {
   Actor.prototype.processTradeInitiated = function (tradeInitiated) {
-    var message = 'Trade initiated. ID: ' + tradeInitiated.id +
+    let message = 'Trade initiated. ID: ' + tradeInitiated.id +
     '\nAction: ' + tradeInitiated.action + '\nPortfolio: ' +
     tradeInitiated.portfolio + '\nBalance: ' + tradeInitiated.balance;
     this.bot.sendMessage(this.chatId, message);
   }
   
   Actor.prototype.processTradeCancelled = function (tradeCancelled) {
-    var message = 'Trade cancelled. ID: ' + tradeCancelled.id;
+    let message = 'Trade cancelled. ID: ' + tradeCancelled.id;
     this.bot.sendMessage(this.chatId, message);
   }
   
   Actor.prototype.processTradeAborted = function (tradeAborted) {
-    var message = 'Trade aborted. ID: ' + tradeAborted.id +
+    let message = 'Trade aborted. ID: ' + tradeAborted.id +
     '\nNot creating order! Reason: ' + tradeAborted.reason;
     this.bot.sendMessage(this.chatId, message);
   }

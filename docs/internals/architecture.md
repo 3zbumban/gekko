@@ -1,6 +1,6 @@
 # Gekko's architecture
 
-![Gekko architecture](https://wizb.it/gekko/static/architecture.jpg)
+![Gekko architecture](../img/architecture.jpg)
 
 Every Gekko instance has two core components:
 

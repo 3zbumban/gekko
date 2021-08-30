@@ -47,10 +47,6 @@ Read more in the [architecture documentation](../internals/architecture.md).
 * The title is inspired by [Bateman](https://github.com/fearofcode/bateman).
 * This project is inspired by the [GoxTradingBot](https://github.com/virtimus/GoxTradingBot/) Chrome plugin (which in turn is inspired by [Goomboo's journal](https://bitcointalk.org/index.php?topic=60501.0)).
 
-## Final
-
-If Gekko helped you in any way, you can always leave me a tip at (BTC) 13r1jyivitShUiv9FJvjLH7Nh1ZZptumwW
-
 ## Disclaimer
 
 Gekko (nor anyone behind this project) DOES NOT give investment advice. All advice seen within Gekko is the result of running YOUR OWN strategies against the market. On top of that there might be bugs in the code - Gekko DOES NOT come with ANY warranty.
